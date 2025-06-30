@@ -1,0 +1,3 @@
+- To get rid of the colorful template formatting, I commented out the first line (documentclass) with a few more lines (probably related to the template). Did I mess up the formatting?
+- Do I need to change every Hungarian text to English in the manuscript template? (e.g. thesis cover)
+- Do I need the ISBN code on the cover page?

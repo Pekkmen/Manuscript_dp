@@ -1,0 +1,10 @@
+#! /bin/bash
+
+./make_biblio.py
+./exportlog.py
+pdflatex -shell-escape \\nonstopmode \\input ./manuscript.tex 
+biber manuscript
+pdflatex -shell-escape \\nonstopmode \\input ./manuscript.tex
+pdflatex -shell-escape \\nonstopmode \\input ./manuscript.tex
+
+# rm -f manuscript.{out,aux,bbl,bcf,blg,lof,log,lot,pdf,run.xml,toc,txt}

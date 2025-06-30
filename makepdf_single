@@ -1,0 +1,5 @@
+#! /bin/bash
+
+pdflatex -shell-escape \\nonstopmode \\input ./manuscript.tex 
+
+# rm -f manuscript.{out,aux,bbl,bcf,blg,lof,log,lot,pdf,run.xml,toc,txt}
