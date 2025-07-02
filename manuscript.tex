@@ -232,7 +232,7 @@ A dolgozat célja annak vizsgálata, miként lehet nagyfelbontású tőzsdei ada
 %\sectionimage{kep/header.png} % Chapter heading image
 \chpt{Abstract}
 \thispagestyle{empty}
-The aim of this thesis is to investigate how high resolution stock market data can be processed and used to train a neural network to develop a winning strategy. The first main step is to process the stock market data, for which several data processing methods have been implemented. In the second main step, we focused on the neural network construction, where we experimented with two network structures: an LSTM based RNN and a CNN following the LeNet topology. During the test runs, we determined the best performing data processing methods and neural network and then fine-tuned their parameters to achieve the best possible performance. The thesis consists of 7 chapters, 27 figure, 10 table and 1 attachment. The first chapter summarises the basic stock market knowledge required for the thesis, while the second chapter provides a comprehensive overview of the basics of machine learning. The third chapter presents three projects and studies aimed at developing tools for algorithmic trading. The fourth chapter describes the aim and approach of the thesis. Chapter five presents the tools and frameworks used, along with the development process. Chapter six covers the testing of the implemented work and experiments to determine the appropriate parameters. Finally, in chapter seven, our recommendations for further development are formulated.
+The aim of this thesis is to investigate how high resolution stock market data can be processed and used to train a neural network to develop a profitable strategy. The first main step is to process the stock market data, for which several data processing methods have been implemented. In the second main step, we focused on the neural network construction, where we experimented with two network structures: an LSTM based RNN and a CNN following the LeNet topology. During the test runs, we determined the best performing data processing methods and neural network and then fine-tuned their parameters to achieve the best possible performance. The thesis consists of 7 chapters, 27 figure, 10 table and 1 attachment. The first chapter summarises the basic stock market knowledge required for the thesis, while the second chapter provides a comprehensive overview of the basics of machine learning. The third chapter presents three projects and studies aimed at developing tools for algorithmic trading. The fourth chapter describes the aim and approach of the thesis. Chapter five presents the tools and frameworks used, along with the development process. Chapter six covers the testing of the implemented work and experiments to determine the appropriate parameters. Finally, in chapter seven, our recommendations for further development are formulated.
 \\\\
 \textbf{Keywords:} machine learning, data processing, algorithmic trading
 \pagebreak
@@ -254,7 +254,7 @@ The stock market is a key component of the modern economy, serving as a platform
 
 The main objective of ML is to find rules or patterns in data to achieve certain goals. In the financial world, for example, this might involve extracting useful information from the available data to support or automate investment activities. In the context of the stock market, these activities include observing the market and placing buy or sell orders based on the conclusions drawn. \cite{MLAT}
 
-In this thesis, we investigate how full-resolution stock market data can be effectively processed and analyzed using machine learning. The work includes experimentation with data processing techniques to format the data in a way that is suitable for training a neural network. We then then construct and evaluate different network architectures to determine which is the most suitable for developing a system capable of supporting or automating trading through a learned winning strategy.
+In this thesis, we investigate how full-resolution stock market data can be effectively processed and analyzed using machine learning. The work includes experimentation with data processing techniques to format the data in a way that is suitable for training a neural network. We then then construct and evaluate different network architectures to determine which is the most suitable for developing a system capable of supporting or automating trading through a learned profitable strategy.
 
 Processing full-resolution stock market data involves several important considerations. To be usable for machine learning, the data must be cleaned and structured in a consistent format. Decisions must be made on how to reduce noise and extract features without losing important information, ensuring that meaningful patterns can be learned by the algorithm.
 
@@ -514,17 +514,18 @@ The example mentioned described a ML system performing supervised learning and s
 		
 		Problems with a quantitative response are referred to as regression problems, while problems with a qualitative response are referred to as classification problems. \cite{AISL}
 
-		\subsubsection{Unsupervised learning}
-		If we only have a set of unlabeled measurement vectors $x_i$ (where $i = 1, ..., n$) with no corresponding $y_i$ response, we talk about unsupervised learning. Since we don't have an associated response, the goal of unsupervised learning is not to make predictions, but rather to analyze and discover patterns in the available data, which makes often makes working with unsupervised learning algorithms subjective. Furthermore, the lack of a corresponding response makes evaluating the obtained results difficult, as there is no way to check our work without knowing the true answer. This method of learning is often used as part of an exploratory data analysis. For example, a researcher might analyze gene expression levels in patients with certain health conditions to identify relationships or subgroups among the genes. A webstore could perform sales analyses to identify groups of customers with similar purchase histories for targeted advertisements and service customization. Similarly, a search engine might customize search results for users based on the click histories of other users with similar search patterns. \cite{AISL} 
-
-		For applications like these, where groups of objects or persons are identified, clustering algorithms are used. Another frequently used method in unsupervised learning is data visualization, which transforms complex, unlabeled data into a format suitable for plotting or further analysis. A related task is dimensionality reduction, where the aim is to simplify data with minimal information loss by performing feature extraction and merging correlated features. Anomaly detection algorithms can be used to detect fraudulent actions or to remove outliers from datasets during preprocessing. \cite{HMLSKT}
-
 		\subsubsection{Reinforcement learning}
 		In reinforcement learning, a virtual object called an agent can make observation of its environment, commit actions resulting in rewards or penalties (usually defined as negative rewards) based on the outcome. An episode is a complete sequence of these interactions, starting from an initial state and continuing until the agent reaches a terminal state or a stopping condition. During an episode, the agent learns by receiving feedback (the rewards), which guides it to improve its actions over time. \cite{HMLSKT}
 
 		In reinforcement learning, the goal is to figure out a strategy (called a policy) that tells the agent what actions to take in different situations, in order to get the most reward over time. The policy can either be deterministic, where the the agent always picks the same action for a given situation, or stochastic, where the action is chosen probabilistically. The agent needs to learn how actions and rewards are connected, which means it needs to explore the policy space through trial and error. Policy space refers to the set of all possible policies that an agent can adopt. \cite{RLRAS}
 
 		More precisely, this policy could be a neural network, which takes observations as inputs and outputs the resulting action. Alternatively, the policy could be a genetic algorithm, where each generation consists of multiple policies and new generations of policy offsprings are created based on the genetic algorithm used. Reinforcement learning is commonly used in robotics and smart home appliances. We can also find financial securities trading support systems using reinforcement learning. \cite{HMLSKT}
+
+		\subsubsection{Unsupervised learning}
+		If we only have a set of unlabeled measurement vectors $x_i$ (where $i = 1, ..., n$) with no corresponding $y_i$ response, we talk about unsupervised learning. Since we don't have an associated response, the goal of unsupervised learning is not to make predictions, but rather to analyze and discover patterns in the available data, which makes often makes working with unsupervised learning algorithms subjective. Furthermore, the lack of a corresponding response makes evaluating the obtained results difficult, as there is no way to check our work without knowing the true answer. This method of learning is often used as part of an exploratory data analysis. For example, a researcher might analyze gene expression levels in patients with certain health conditions to identify relationships or subgroups among the genes. A webstore could perform sales analyses to identify groups of customers with similar purchase histories for targeted advertisements and service customization. Similarly, a search engine might customize search results for users based on the click histories of other users with similar search patterns. \cite{AISL} 
+
+		For applications like these, where groups of objects or persons are identified, clustering algorithms are used. Another frequently used method in unsupervised learning is data visualization, which transforms complex, unlabeled data into a format suitable for plotting or further analysis. A related task is dimensionality reduction, where the aim is to simplify data with minimal information loss by performing feature extraction and merging correlated features. Anomaly detection algorithms can be used to detect fraudulent actions or to remove outliers from datasets during preprocessing. \cite{HMLSKT}
+
 
 	\subsection{Learning parameters.}
 	During the training process there are numerous variable parameters that need to be tailored depending on the model's objective.
@@ -621,7 +622,7 @@ The example mentioned described a ML system performing supervised learning and s
 
 	The input to the neural networks at the end of period $t$ is a tensor, $X_t$, with shape $(f,n,m)$, where $m$ is the number of preselected non-cash assets, $n$ is the number of input periods before $t$ and $f$ is the number of features. The features include the closing price, highest price and lowest price of the chosen asset. The output is a portfolio vector $w_t$, which represents the weights of the different assets and it's based on the input price tensor $X_t$ and the previous portfolio vector $w_{t-1}$. At the beginning of each period, the trading agent reallocates the fund among the assets. The fee for the trading actions is calculated as the maximum possible fee percentage on their chosen trading website, which is 0.25\%. 
 
-	The framework was tested on historical data only with ideal conditions: zero slippage (meaning the trade is executed immediately when an order is placed) and zero market impact (so the value of the trade is too insignificant to influence the market). For the portfolio preallocation the 11 most-volumed assets were selected. For training, historic price data from the past two days were used. The optimal policy was obtained using gradient ascent algorithm.
+	The framework was tested on historical data only with ideal conditions: zero slippage (meaning the trade is executed immediately when an order is placed) and zero market impact (so the value of the trade is too insignificant to influence the market). For the portfolio preallocation the 11 most-volumed assets were selected. For training, historic price data from the past two days were used. The optimal policy was obtained using gradient descent algorithm.
 
 	The agent's environment consists of all available assets in the chosen market. The external part of the environmental state includes the prices of all orders throughout the market's history up to the current moment. Since this information is too large for the agent to process directly, it is sampled through periodic feature extraction. Time is discretized into periods and for each period, the highest, lowest, and closing prices are extracted. The internal part of the environmental state consists of the agent's previous action (the previously mentioned portfolio vector output), defining the environment state at time $t$ as $s_t = (X_t, w_{t-1})$.
 
@@ -675,7 +676,7 @@ The example mentioned described a ML system performing supervised learning and s
 \chapter{Implementation of the trading algorithm}
 
 \section{The goal of the thesis}
-	Our goal is to examine how real stock market data can be used to construct winning trading strategies using neural networks. To simplify the problem, we focus more on generating profit rather than maximizing it.
+	Our goal is to examine how real stock market data can be used to construct profitable trading strategies using neural networks. To simplify the problem, we focus more on generating profit rather than maximizing it.
 
 	The first step is data processing. We need to transform the available raw data into a format suitable for training and testing the constructed models. For the data processing we aimed to test multiple methods to give the model the best chance to recognize and learn patterns in price fluctuations.
 
@@ -754,12 +755,10 @@ The example mentioned described a ML system performing supervised learning and s
 
 		We then compute two thresholds relative to the current price:
 
-		\[
-		\texttt{max\_thr} &= \text{price}_i \cdot \left(1 + \frac{\texttt{price\_diff\_threshold}}{100}\right)
-		\]
-		\[
+		\begin{align*}
+		\texttt{max\_thr} &= \text{price}_i \cdot \left(1 + \frac{\texttt{price\_diff\_threshold}}{100}\right) \\
 		\texttt{max\_margin\_thr} &= \text{price}_i \cdot \left(1 + \frac{\texttt{price\_diff\_threshold} - \texttt{price\_diff\_margin}}{100}\right)
-		\]
+		\end{align*}
 
 		We check whether $\text{price}_{\text{max}}$ exceeds $\texttt{max\_thr}$. If it does, we label $\text{point}_i$ as \textit{Buy}. If $\text{price}_{\text{max}}$ is below $\texttt{max\_margin\_thr}$, we label $\text{point}_i$ as \textit{Hold}. Points where
 		\[
@@ -924,9 +923,11 @@ The example mentioned described a ML system performing supervised learning and s
 		\item Simple Moving Average (SMA) = The average of recent mid prices over the past $N$ time steps:
 			\[ \text{SMA}\ =\ \frac{\sum_{i=t-N}^{t}{\text{MidPrice}_{i}}}{N} \]
 		\item Bid-Ask order size balance = Reflects market pressure. A negative value indicates more supply and sell pressure, while a positive value indicates more demand and buy pressure. For depth $D\ =\ 3$:
-			\[ \text{BidSizes}\ =\ \sum_{i=1}^{D}{\text{BidSize}_i} \]
-			\[ \text{AskSizes}\ =\ \sum_{i=1}^{D}{\text{AskSize}_i} \]
-			\[ \text{SizeBalance}\ =\ \frac{\text{BidSizes}\ -\ \text{AskSizes}}{\text{BidSizes}\ +\ \text{AskSizes}}\]
+			\begin{align*}
+			\text{BidSizes}\ &=\ \sum_{i=1}^{D}{\text{BidSize}_i}\\
+			\text{AskSizes}\ &=\ \sum_{i=1}^{D}{\text{AskSize}_i}\\
+			\text{SizeBalance}\ &=\ \frac{\text{BidSizes}\ -\ \text{AskSizes}}{\text{BidSizes}\ +\ \text{AskSizes}}
+			\end{align*}
 		\item Bid-Ask spread = A basic liquidity indicator. A narrow spread imply high liquidity, while a wider spread imply low liquidity:
 			\[ \text{Spread} = \text{AskPrice}_{1} - \text{BidPrice}_{1} \]
 		\item Volatility = The standard deviation of mid price changes. We approximate this over the last $N$ steps:
@@ -934,8 +935,10 @@ The example mentioned described a ML system performing supervised learning and s
 		\item Cash in hand = Available funds for buying stocks.
 		\item Stocks owned = The number of currently held stocks.
 		\item Portfolio value = Total value of the agent's current portfolio:
-			\[ \text{StockValue}\ =\ \text{MidPrice}_{t}\ \cdot\ \text{StocksOwned}_{t} \]
-			\[ \text{PortfolioValue}\ =\ \text{Cash}_{t}\ +\ \text{StockValue}_{t} \]
+			\begin{align*}
+			\text{StockValue}\ &=\ \text{MidPrice}_{t}\ \cdot\ \text{StocksOwned}_{t} \\
+			\text{PortfolioValue}\ &=\ \text{Cash}_{t}\ +\ \text{StockValue}_{t}
+			\end{align*}
 		\item Remaining time = Indicated how much time is left within the 60 second trading horizon.
 	\end{itemize}
 
@@ -986,7 +989,7 @@ The example mentioned described a ML system performing supervised learning and s
 	\end{center}
 	\end{figure}
 
-	In Figure~\ref{fig:lenet_structure} the structure of our LeNet implementation is shown. The initial 1D convolution-ReLU-max pooling layer group (with index 0) is only included when processing very long sequences, otherwise it's ommited. The core of the network consists of two sets of 1D convolution-ReLU-max pooling layers, labeled with indices 1 and 2. The \texttt{conv1} layer has 6 filters with a 1x5 kernel and a stride of 5. The next convolution layer, \texttt{conv2}, uses 16 filters with the same kernel size and stride. Its \texttt{Padding} parameter is set to \texttt{same}, ensuring that the output size is $\lceil \frac{\text{InputSize}}{\text{Stride}} \rceil$, which prevents excessive shrinking of the input during convolution~\cite{1DCL}. The final convolution layer, \texttt{conv3}, also uses padding, with 16 filters, a 1x11 kernel and a stride of 16. It is followed by a ReLU and then three fully connected layers. Each max pooling layer uses a pool size of 2 to downsample the sequence.
+	In Figure~\ref{fig:lenet_structure} the structure of our LeNet implementation is shown. The initial 1D convolution-ReLU-max pooling layer group (with index 0) is only included when processing very long sequences, otherwise it's ommited. The core of the network consists of two sets of 1D convolution-ReLU-max pooling layers, labeled with indices 1 and 2. The \texttt{conv1} layer has 6 filters with a 1x5 kernel and a stride of 5. The next convolution layer, \texttt{conv2}, uses 16 filters with the same kernel size and stride. Its \texttt{Padding} parameter is set to \texttt{same}, ensuring that the output size is $\left\lceil \frac{\text{InputSize}}{\text{Stride}} \right\rceil$, which prevents excessive shrinking of the input during convolution~\cite{1DCL}. The final convolution layer, \texttt{conv3}, also uses padding, with 16 filters, a 1x11 kernel and a stride of 16. It is followed by a ReLU and then three fully connected layers. Each max pooling layer uses a pool size of 2 to downsample the sequence.
 
 	The \texttt{sequenceInputLayer} used in the LSTM model is incompatible with convolution layers, so we used a custom \texttt{inputLayer} instead. To ensure that MATLAB correctly interprets the input data, we set the input format (height x width x depth) using the \texttt{BTC} format. Here, the first dimension (height), which holds the individual sequences, represents the \textbf{b}atch size, the second (width) stores the \textbf{t}ime steps, and the third (depth) holds the features or \textbf{c}hannels.
 
