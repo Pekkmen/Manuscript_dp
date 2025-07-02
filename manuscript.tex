@@ -89,8 +89,8 @@
 
 \definecolor{ocre}{RGB}{243, 102, 25} % Define the color used for highlighting throughout the book
 
-% \chapterspaceabove{6.5cm} % Default whitespace from the top of the page to the chapter title on chapter pages
-% \chapterspacebelow{6.75cm} % Default amount of vertical whitespace from the top margin to the start of the text on chapter pages
+% \sectionspaceabove{6.5cm} % Default whitespace from the top of the page to the chapter title on chapter pages
+% \sectionspacebelow{6.75cm} % Default amount of vertical whitespace from the top margin to the start of the text on chapter pages
 
 \onehalfspacing
 %\doublespacing
@@ -138,12 +138,9 @@
 	\hfill\the\year{}, Komárno\hfill
 	}
 \end{minipage}
-
-\cleardoublepage
 \begingroup
 \makeatletter
-\let\ps@plain\ps@empty
-\begin{minipage}[c][\textheight][c]{\textwidth}
+\begin{minipage}[c][\textheight-1cm][c]{\textwidth}
 	{\centering
 	{\large UNIVERZITA J. SELYEHO\\SELYE JÁNOS EGYETEM}\\
 	\vskip0.5cm
@@ -151,7 +148,6 @@
 	\vfill
 	{\Large NÁZOV PRÁCE\\Analýza údajov o cenách na burze v reálnom čase pomocou neurónových sietí }\\
 	\vfill
-	\thispagestyle{empty}
 	\begin{tabular}{ll}
 		Študijný program:    & Aplikovaná informatika \\
 		Tanulmányi program:  & Alkalmazott Informatika\\
@@ -167,15 +163,19 @@
 	Bc. Eugen Fekete\\
 	\hfill\the\year{}, Komárno\hfill
 	}
+	\thispagestyle{empty}
 \end{minipage}
+\let\ps@plain\ps@empty
+\makeatother
 \endgroup
+\thispagestyle{empty}
 {
-\hspace*{-2cm}
+% \hspace*{-2cm}
 \includepdf[pages=-]{zadanie_zp.pdf}
 \pagebreak
 }
 
-\chapter*{Statutory Declaration}
+\section*{Statutory Declaration}
 \thispagestyle{empty}
 I, Eugen Fekete, hereby declare that I have completed this work to the best of my knowledge, based on properly cited academic sources and under the professional guidance of my supervisor.
 
@@ -190,7 +190,7 @@ I, Eugen Fekete, hereby declare that I have completed this work to the best of m
 \end{minipage}
 \pagebreak
 
-\chapter*{Acknowledgement}
+\section*{Acknowledgement}
 \thispagestyle{empty}
 I want to sincerely thank my supervisor, László Marák, PhD., for his invaluable support and guidance throughout this project. His dedication and willingness to help, often going beyond what was expected, made this thesis possible. I deeply appreciate his seemingly relentless patience and expertise he showed during our cooperation. I'm grateful to have had the opportunity to work under his supervision and create this work.
 
@@ -199,18 +199,18 @@ I would like to say a special thanks to Tilla Izsák, Mgr., for generously shari
 Lastly, I'm thankful to my loved ones for their support in completing this thesis.
 \pagebreak
 
-% \newcommand{\chpt}[1]{\chapter*{#1}\addcontentsline{toc}{section}{#1}}
-\newcommand{\chpt}[1]{\chapter*{#1}}
-% \chapterimage{kep/header.png} % Chapter heading image
+% \newcommand{\chpt}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\newcommand{\chpt}[1]{\section*{#1}}
+% \sectionimage{kep/header.png} % Chapter heading image
 
-% \chapterimage{kep/header2.png} % Chapter heading image
+% \sectionimage{kep/header2.png} % Chapter heading image
 % \chpt{Opis práce}
 % % \addcontentsline{toc}{chapter}{Opis práce}
 
 % Autor vyrešil úlohu, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie, ešte trošku dlhšie
 % \pagebreak
 
-%\chapterimage{kep/header3.png} % Chapter heading image
+%\sectionimage{kep/header3.png} % Chapter heading image
 \chpt{Abstrakt}\label{sec:abstrakt}
 \thispagestyle{empty}
 % \addcontentsline{toc}{chapter}{Abstrakt}
@@ -219,7 +219,7 @@ Cieľom tejto práce je preskúmať, ako možno spracovať údaje z akciového t
 \textbf{Kľúčové slová:} strojové učenie, spracovanie dát, algoritmické obchodovanie
 \pagebreak
 
-%\chapterimage{kep/header4.png} % Chapter heading image
+%\sectionimage{kep/header4.png} % Chapter heading image
 \chpt{Absztrakt}\label{sec:absztrakt}
 \thispagestyle{empty}
 % \addcontentsline{toc}{chapter}{Absztrakt}
@@ -229,7 +229,7 @@ A dolgozat célja annak vizsgálata, miként lehet nagyfelbontású tőzsdei ada
 
 \pagebreak
 
-%\chapterimage{kep/header.png} % Chapter heading image
+%\sectionimage{kep/header.png} % Chapter heading image
 \chpt{Abstract}
 \thispagestyle{empty}
 The aim of this thesis is to investigate how high resolution stock market data can be processed and used to train a neural network to develop a winning strategy. The first main step is to process the stock market data, for which several data processing methods have been implemented. In the second main step, we focused on the neural network construction, where we experimented with two network structures: an LSTM based RNN and a CNN following the LeNet topology. During the test runs, we determined the best performing data processing methods and neural network and then fine-tuned their parameters to achieve the best possible performance. The thesis consists of 7 chapters, 27 figure, 10 table and 1 attachment. The first chapter summarises the basic stock market knowledge required for the thesis, while the second chapter provides a comprehensive overview of the basics of machine learning. The third chapter presents three projects and studies aimed at developing tools for algorithmic trading. The fourth chapter describes the aim and approach of the thesis. Chapter five presents the tools and frameworks used, along with the development process. Chapter six covers the testing of the implemented work and experiments to determine the appropriate parameters. Finally, in chapter seven, our recommendations for further development are formulated.
@@ -243,14 +243,14 @@ The aim of this thesis is to investigate how high resolution stock market data c
 \listoffigures
 \thispagestyle{empty}
 
-\pagestyle{fancy}
+% \pagestyle{fancy}
 
-\chapter*{Introduction}
+\section*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 \markboth{}{\sffamily\normalsize{Introduction}}
 Machine learning (ML) plays a pivotal role in many areas of modern sciences, whether in industry, healthcare, finance and other fields. It can be used to provide a better service for the users of a search engine, a social media site or a media service provider by learning from the behaviour of the average user, predict stock prices within a specific time interval based on company performance measures and economic data, identify the risk factors for certain health conditions derived from clinical and demographic variables, identify the characters in a handwritten address from a digitized image and so on. \cite{TESL}
 
-The stock market is a key component of the modern economy, serving as a platform where companies raise large amounts of capital to boost startups, expand businesses, or consolidate operations and reduce debt.\cite{WSM&HDIW} The stock market also presents investors opportunities for capital growth through strategic decision-making. 
+The stock market is a key component of the modern economy, serving as a platform where companies raise large amounts of capital to boost startups, expand businesses, or consolidate operations and reduce debt.\cite{WSMandHDIW} The stock market also presents investors opportunities for capital growth through strategic decision-making. 
 
 The main objective of ML is to find rules or patterns in data to achieve certain goals. In the financial world, for example, this might involve extracting useful information from the available data to support or automate investment activities. In the context of the stock market, these activities include observing the market and placing buy or sell orders based on the conclusions drawn. \cite{MLAT}
 
@@ -260,21 +260,22 @@ Processing full-resolution stock market data involves several important consider
 
 Designing a neural network for the stock market is challenging due to its highly dynamic nature. The model needs to detect patterns over time while handling sudden changes in market behavior. To perform well, it must be complex enough to learn useful information, but not so complex that it overfits to specific time intervals. Key decisions include how much data to use as input, which neural network architecture to employ and how to train the model effectively.
 
-% \chapterimage{kep/header2.png} % Chapter heading image
-\chapter{The stock market}
-The stock market is an exchange network that allows investors to buy and sell shares of publicly traded companies. Nowadays, most trades are executed electronically between the participants. The stock market enables companies to raise funds for their projects while providing investors opportunities for capital growth, either through a share of the profit or by selling the stocks later at a higher price. \cite{WSM&HDIW}
+\chapter{Algorithmic trading}
+% \sectionimage{kep/header2.png} % Chapter heading image
+\section{The stock market}
+The stock market is an exchange network that allows investors to buy and sell shares of publicly traded companies. Nowadays, most trades are executed electronically between the participants. The stock market enables companies to raise funds for their projects while providing investors opportunities for capital growth, either through a share of the profit or by selling the stocks later at a higher price. \cite{WSMandHDIW}
 
-The price of a stock is mainly determined by the demand for shares from new or existing investors wanting to buy and the supply of shares from those wanting to sell. The main factors influencing demand are economic data, interest rates, and corporate results. Economic data reflects the state of the economy. Higher interest rates typically decrease the demand for stocks, but since a stronger economy often leads to higher interest rates, these two factors tend to moderate each other. Corporate results, which include profits, sales, and business outlook, have a significant impact on the demand for individual stocks. \cite{HDLS&DASM}
+The price of a stock is mainly determined by the demand for shares from new or existing investors wanting to buy and the supply of shares from those wanting to sell. The main factors influencing demand are economic data, interest rates, and corporate results. Economic data reflects the state of the economy. Higher interest rates typically decrease the demand for stocks, but since a stronger economy often leads to higher interest rates, these two factors tend to moderate each other. Corporate results, which include profits, sales, and business outlook, have a significant impact on the demand for individual stocks. \cite{HDLSandDASM}
 
 The two most basic order types on the stock market are market orders and limit orders. A market order is executed at the best available price, guaranteeing immediate execution as long as there is sufficient liquidity. In a fast-moving market, the best available price can change significantly, leading to a better or worse execution price than anticipated or causing parts of a large market order to be executed at different prices. On the other hand, a limit order is executed at the specified price or better. A buy limit order can only be filled at the limit price or lower, while a sell limit order can only be filled at the limit price or higher. Since the execution depends on the market reaching the limit price, it is not guaranteed. However, placing a limit order ensures that the trader doesn't pay more or receive less than their specified price.\cite{TBUDWBSS}
 
-	\section{NASDAQ}
-	The NASDAQ (National Association of Securities Dealers Automated Quotations) Stock Market, commonly known as NASDAQ, was founded in 1971 in the USA as the world's first electronic stock market. It later became the world's second-largest stock exchange by market capitalization, with more than 3,000 stocks listed. As of the time of writing this thesis, the technology sector holds the largest share, followed by consumer services in second place and healthcare in third. \cite{WNC&WCI}
+	\subsection{NASDAQ}
+	The NASDAQ (National Association of Securities Dealers Automated Quotations) Stock Market, commonly known as NASDAQ, was founded in 1971 in the USA as the world's first electronic stock market. It later became the world's second-largest stock exchange by market capitalization, with more than 3,000 stocks listed. As of the time of writing this thesis, the technology sector holds the largest share, followed by consumer services in second place and healthcare in third. \cite{WNCandWCI}
 
-	The market opens at 9:30 AM and closes at 4:00 PM Eastern Time (UTC-5). There are also pre-market hours, lasting from 4:00 AM to 9:30 AM, and after-hours trading, lasting from 4:00 PM to 8:00 PM. These trading periods, outside of the core trading hours, are collectively known as Extended Markets. The duration of the extended market hours may vary depending on the broker site. \cite{SMH&TH}
+	The market opens at 9:30 AM and closes at 4:00 PM Eastern Time (UTC-5). There are also pre-market hours, lasting from 4:00 AM to 9:30 AM, and after-hours trading, lasting from 4:00 PM to 8:00 PM. These trading periods, outside of the core trading hours, are collectively known as Extended Markets. The duration of the extended market hours may vary depending on the broker site. \cite{SMHandTH}
 	
-	\section{Limit Order Book}
-	When a limit order for a security, in our case for a stock, is placed, it's recorded in a data structure called the limit order book (LOB). A limit order remains in the LOB until it's executed, canceled, or expired. As previously discussed, buy limit orders specify a maximum price the investor is willing to pay, while sell limit orders specify a minimum price the investor is willing to accept. The LOB has two sides: the ask side, which contains sell orders and the bid side, which contains buy orders. These orders are sorted by price, with the highest bid and lowest ask defining the top priority orders. These top priority orders are generally executed first before lower-priority orders in the LOB. \cite{WLOB?DD}
+	\subsection{Limit Order Book}
+	When a limit order for a security, in our case for a stock, is placed, it's recorded in a data structure called the limit order book (LOB). A limit order remains in the LOB until it's executed, canceled, or expired. As previously discussed, buy limit orders specify a maximum price the investor is willing to pay, while sell limit orders specify a minimum price the investor is willing to accept. The LOB has two sides: the ask side, which contains sell orders and the bid side, which contains buy orders. These orders are sorted by price, with the highest bid and lowest ask defining the top priority orders. These top priority orders are generally executed first before lower-priority orders in the LOB. \cite{WLOBDD}
 
 	Since the LOB provides real-time information about the supply and demand of a security, analyzing its data can help traders make informed decisions and maximize profitability. By studying the LOB, traders can gain market insights and even prepare for potential price movements \cite{PIMPILOB}. Thanks to the LOB being an important asset in market data analysis, numerous tools and databases are available for accessing preprocessed LOB data. One such tool is called LOBSTER (Limit Order Book System - The Efficient Reconstructor), an online LOB data platform that provides easy-to-use, reconstructed multi-level NASDAQ LOB data for all NASDAQ-traded stocks \cite{WLOBSTER}. LOB reconstruction will be discussed later in this thesis.
 
@@ -302,7 +303,9 @@ The two most basic order types on the stock market are market orders and limit o
 
 	While LOBSTER won't be used in this thesis due to its subscription cost of around 5000€ per year \cite{LOBSTERAO}, it demonstrates a very effective format for storing LOB data, which can be easily utilized programmatically ln later work.
 
-\chapter{Machine learning}
+
+
+\section{Machine learning}
 The more common way of making a computer do work is to execute a computer program created by a human programmer. This program contains the steps and rules that turn input data into the appropriate answers, called output data. Machine learning (ML) mixes up these steps: the machine examines the input and output data, and tries to figure out what the rules should be. A system working like this is said to be trained rather than programmed. It is during the training process that the system identifies these rules by learning the patterns and relationships in the available data. \cite{DLP}
 
 Learning can be described using the definition provided by the renowned computer scientist and machine learning researcher, Tom Michael Mitchell:
@@ -313,7 +316,7 @@ As an example, a text recognition program, a so called Optical Character Recogni
 
 The example mentioned described a ML system performing supervised learning and solving a classification problem. We talk about supervised learning when a training set with appropriately labeled data is available for the learning process. Two other well known types of learning are unsupervised learning, where no training set with labeled data is available, and reinforcement learning, where a software agent learns rules by interacting with its environment. A classification problem is a problem where each input can be sorted into discrete number of classes. In the previous example each letter in a text can be classified as one of the letters of the alphabet. In contrast, when predicting land prices, we do not expect discrete labels as outputs, so we can't speak of classification problems. This is known as a regression problem and we expect continuous numerical values as outputs, for which a regression algorithm is used. \cite{AISL}
 
-	\section{Deep learning and neural networks}
+	\subsection{Deep learning and neural networks}
 	Deep learning is a specific subset of machine learning. The idea behind deep learning is to learn through successive layers, enabling the model to progressively learn more abstract and meaningful representations of data. Each layer builds upon the previous one, allowing the model to automatically extract hierarchical features, which helps it tackle complex tasks like image and speech recognition. The depth of a model refers to the number of layers it consists of. A deep learning model can have tens or even hundreds of layers. Models that focus on learning on one or two layers are referred to as \textit{shallow learning}. In deep learning, these layered representations are learned with models called artificial \textit{neural networks}. \cite{DLP}
 
 	An artificial neural network is commonly described as a machine or software designed to somewhat imitate how the brain performs certain tasks. To some extent, this means that, like the brain, a neural network can be characterized as a massively parallel distributed processor made up of simple processing units called \textit{neurons}. These neurons are capable of storing experiential knowledge and making it available for use. Just like the brain, a neural network acquires knowledge through learning from its environment and interneuron connection strengths, known as \textit{synaptic weights}, are used to store the acquired knowledge. \cite{NNACF}
@@ -367,7 +370,7 @@ The example mentioned described a ML system performing supervised learning and s
 
 	The way neurons are structured and connected primarily determines how the network learns and functions.
 
-		\subsection{Single-layer feedforward network}
+		\subsubsection{Single-layer feedforward network}
 		In a layered neural network, neurons are organized in a structured, layer-like form. A single-layer neural network is the simplest form of a layered network, where neurons in the input layer are connected to neurons in the output layer. These connections work only in one direction, hence the name feedforward. Since only the output layer performs actual computations, the input layer merely passes information forward, only the output layer is counted, hence the name single-layer neural network. The output signals of the neurons in the output layer is the overall response of the network to the data supplied in the input layer. \cite{NNACF} 
 		
 		The structure of a single-layer feedforward neural network is presented in Figure~\ref{fig:single-layer feedforward nn}.
@@ -379,7 +382,7 @@ The example mentioned described a ML system performing supervised learning and s
 		\end{center}
 		\end{figure}
 
-		\subsection{Multilayer feedforward network}
+		\subsubsection{Multilayer feedforward network}
 		To effectively solve non-linearly separable problems or extract higher-order statistics, a multilayer feedforward network is recommended. These networks include one or more \textit{hidden layers}, which are positioned between the input and output layers. Hidden layers consist of neurons, referred to as \textit{hidden neurons}, that receive inputs from the output signals of neurons in the preceding layer. The hidden layers enable the network to learn complex representations by applying additional transformations through an extra set of synaptic weights. 
 
 		In Figure \ref{fig:smultilayer feedforward nn}, a fully connected multilayer feedforward neural network is shown. The network is considered \textit{fully connected}, because every neuron in each layer is connected to every neuron in the subsequent layer. If some connections were missing, the network would be considered \textit{partially connected} \cite{NNACF}.
@@ -391,7 +394,7 @@ The example mentioned described a ML system performing supervised learning and s
 		\end{center}
 		\end{figure}
 		
-		\subsection{Convolutional network (CNN)}
+		\subsubsection{Convolutional network (CNN)}
 		Convolutional neural networks (CNNs) are a popular choice for solving image classification problems. CNNs mimic the way humans classify images by focusing on specific features that distinguish each object class. They first identify low-level features (such as contour details and patches of color), then higher-level features (such as parts of limbs or faces). The presence or absence of these details determines the probability of each output class.
 
 		This type of neural network combines two specialized hidden layers: convolution and pooling layers. Convolution layers search for small patterns, while pooling layers downsample these patterns.
@@ -440,7 +443,7 @@ The example mentioned described a ML system performing supervised learning and s
 		
 		Another important property of convolution and pooling layers is \textit{stride}, which determines the size of steps the convolution filter or pooling operation moves across the input image.
 
-		\subsection{Recurrent network (RNN)}
+		\subsubsection{Recurrent network (RNN)}
 		A recurrent neural network (RNN) is another type of multilayer neural network, but it differs from feedforward networks in that it has at least one feedback loop. The structure of a simple RNN is shown in Figure \ref{fig:rnn}. This structure includes self-feedback loops, where the output of a neuron is fed back into its input. In this setup, neurons $x_1$ and $x_3$ are hidden neurons, each with a unit-delay element before its input. These units store and pass the previous hidden state to the next time step, allowing the network to retain temporal dependencies. \cite{NNACF}
 		\begin{figure}[H]
 		\begin{center}
@@ -469,7 +472,7 @@ The example mentioned described a ML system performing supervised learning and s
 		\end{figure}
 		Due to their ability to learn long-term dependencies, LSTMs are suitable for a variety of sequence learning tasks, including language modeling and translation, acoustic modeling of speech, speech synthesis, speech recognition, handwriting recognition, all other kind of time series prediction and more \cite{LSTM}.
 
-	\section{Types of learning}
+	\subsection{Types of learning}
 	Generally, machine learning systems can be grouped based on the type and amount of supervision received during the training. The most common types of learning are:
 	\begin{itemize}
 		\item Supervised learning
@@ -478,7 +481,7 @@ The example mentioned described a ML system performing supervised learning and s
 	\end{itemize}
 	\cite{HMLSKT}
 		
-		\subsection{Supervised learning}
+		\subsubsection{Supervised learning}
 		For supervised learning a training set is available. The training set consists of numerous observations with predefined inputs and a corresponding output. The inputs are called predictors (also called features) and the output is referred to as the response. The observations represents individual data instances. \cite{TESL}
 
 		For each predictor measurement vector $x_i$ (where $i = 1, ..., n$), there is a corresponding response measurement $y_i$. The goal of learning is to fit a model that links the response to the predictors, either to predict the response for future observations or to gain a deeper understanding of the relationship between the response and the predictors. \cite{AISL}
@@ -511,26 +514,26 @@ The example mentioned described a ML system performing supervised learning and s
 		
 		Problems with a quantitative response are referred to as regression problems, while problems with a qualitative response are referred to as classification problems. \cite{AISL}
 
-		\subsection{Unsupervised learning}
+		\subsubsection{Unsupervised learning}
 		If we only have a set of unlabeled measurement vectors $x_i$ (where $i = 1, ..., n$) with no corresponding $y_i$ response, we talk about unsupervised learning. Since we don't have an associated response, the goal of unsupervised learning is not to make predictions, but rather to analyze and discover patterns in the available data, which makes often makes working with unsupervised learning algorithms subjective. Furthermore, the lack of a corresponding response makes evaluating the obtained results difficult, as there is no way to check our work without knowing the true answer. This method of learning is often used as part of an exploratory data analysis. For example, a researcher might analyze gene expression levels in patients with certain health conditions to identify relationships or subgroups among the genes. A webstore could perform sales analyses to identify groups of customers with similar purchase histories for targeted advertisements and service customization. Similarly, a search engine might customize search results for users based on the click histories of other users with similar search patterns. \cite{AISL} 
 
 		For applications like these, where groups of objects or persons are identified, clustering algorithms are used. Another frequently used method in unsupervised learning is data visualization, which transforms complex, unlabeled data into a format suitable for plotting or further analysis. A related task is dimensionality reduction, where the aim is to simplify data with minimal information loss by performing feature extraction and merging correlated features. Anomaly detection algorithms can be used to detect fraudulent actions or to remove outliers from datasets during preprocessing. \cite{HMLSKT}
 
-		\subsection{Reinforcement learning}
+		\subsubsection{Reinforcement learning}
 		In reinforcement learning, a virtual object called an agent can make observation of its environment, commit actions resulting in rewards or penalties (usually defined as negative rewards) based on the outcome. An episode is a complete sequence of these interactions, starting from an initial state and continuing until the agent reaches a terminal state or a stopping condition. During an episode, the agent learns by receiving feedback (the rewards), which guides it to improve its actions over time. \cite{HMLSKT}
 
 		In reinforcement learning, the goal is to figure out a strategy (called a policy) that tells the agent what actions to take in different situations, in order to get the most reward over time. The policy can either be deterministic, where the the agent always picks the same action for a given situation, or stochastic, where the action is chosen probabilistically. The agent needs to learn how actions and rewards are connected, which means it needs to explore the policy space through trial and error. Policy space refers to the set of all possible policies that an agent can adopt. \cite{RLRAS}
 
 		More precisely, this policy could be a neural network, which takes observations as inputs and outputs the resulting action. Alternatively, the policy could be a genetic algorithm, where each generation consists of multiple policies and new generations of policy offsprings are created based on the genetic algorithm used. Reinforcement learning is commonly used in robotics and smart home appliances. We can also find financial securities trading support systems using reinforcement learning. \cite{HMLSKT}
 
-	\section{Learning parameters.}
+	\subsection{Learning parameters.}
 	During the training process there are numerous variable parameters that need to be tailored depending on the model's objective.
-		\subsection{Epoch}
+		\subsubsection{Epoch}
 		An \textit{epoch} refers to one pass through the entire training set. Setting this value too low causes the training process to stop early and the model to not capture the underlying patterns in the data, leading to poor performance. This is called \textit{underfitting}. Setting the value too high can increase the training time and cause the model to fit too closely to the training data, making it unable to generalize for real-life use. This is called \textit{overfitting}. \cite{WIEML}
 
 		The number of epochs doesn't have to be set to an exact value. Often, it's set to a large number, and training is stopped early based on the model's performance during training to prevent overfitting and save time.
 
-		\subsection{Learning rate}
+		\subsubsection{Learning rate}
 		The \textit{learning rate} (often denoted as $\alpha$) in machine learning controls the magnitude of weight updates applied by the chosen optimization method during training epochs, affecting training speed, stability, and performance. Finding the optimal value is crucial, especially for deep neural networks. Setting a value too low can make the training slow and ineffective by getting stuck in a local minimum, while setting the rate too high can cause overstepping of the optimal state, making the model fail to converge. \cite{MML}
 
 		A \textit{fixed learning rate} means that a constant learning rate is selected and maintained throughout the training process. This is a simple approach, but it may be slow and may not converge effectively in complex training scenarios.
@@ -539,12 +542,12 @@ The example mentioned described a ML system performing supervised learning and s
 
 		Another common variant is the \textit{adaptive learning rate}, where the rate can be dynamically adjusted based on the model's performance during the training process. This helps optimize convergence speed and stability, avoiding issues like overshooting minima, but it behaves less predictably and is computationally more expensive. \cite{LRSALRMDL}
 
-		\subsection{Batch size}
+		\subsubsection{Batch size}
 		In batch-based learning, the \textit{batches} are partitions of the training set and the batch size defines the number of samples processed before updating the weights. When the entire training set is used as a single batch, it's called \textit{batch gradient descent}. When each batch consists of a single sample, it's called \textit{stochastic gradient descent}. When the batch size falls between these two extremes, the training is referred to as \textit{mini-batch gradient descent}. If the batch size doesn't divide the training set equally, the final batch will either have fewer samples or will be discarded entirely. \cite{DBBENN} 
 
 		Choosing a small batch size for supervised learning can lead to more frequent weight updates, resulting in slower training and noisy gradients. However, it can also help escape local minima, potentially improving generalization. A smaller batch size also requires less memory, making it ideal for machines with lower hardware specifications. Using a larger batch size can speed up training and provide a more stable learning process with smaller computing costs due to fewer updates. However, it is more prone to getting stuck in local minima and requires more memory. \cite{HDBSIYML}
 
-		\subsection{Loss function}
+		\subsubsection{Loss function}
 		The \textit{loss function} of the network (sometimes referred to as the \textit{objective function} or \textit{cost function}) takes the predictions of the network and the correct answer and computes a distance score, indicating how well the network performed on a given example. The selected optimization method then uses this score to adjust the weights in a direction that lowers the score for the given example. \cite{DLP}
 
 		For a regression problem, the most commonly used loss function is the \textit{Mean Squared Error} (MSE). The function is defined as:
@@ -559,7 +562,7 @@ The example mentioned described a ML system performing supervised learning and s
 
 		The function encourages confidence in correct predictions, penalizes large errors more heavily and penalizes uncertainty less than confident incorrect predictions.\cite{BOCEL}
 
-		\subsection{Optimization method}
+		\subsubsection{Optimization method}
 		The objective of the selected optimization method is to adjust the model's parameters (e.g. the synaptic weights) to achieve the lowest value of the loss function. Each optimization technique fine-tunes the model differently and is chosen based on the specific goal to be achieved \cite{COOTMLT}. The various variants of the \textit{gradient descent} algorithm are among the most commonly used optimization methods.
 
 		Gradient descent minimizes a function by iteratively moving in the direction of the steepest descent (the negative gradient). It updates parameters using:
@@ -576,7 +579,7 @@ The example mentioned described a ML system performing supervised learning and s
 
 		The SGD algorithm has many derivatives. One increasingly common variant is called the Adam optimizer. The Adam optimizer is an adaptive learning rate optimization algorithm. It combines the advantages of two other extensions of SGD: \textit{Momentum} and \textit{RMSProp}. It adjusts the learning rate for each parameter individually, using estimates of the first and second moments of the gradients. Adam is computationally more efficient than its competitors in most cases and is well-suited for large datasets. \cite{AO} 
 
-\chapter{Machine learning for algorithmic trading}
+\section{Machine learning for algorithmic trading}
 	Numerous trends, including the rise of electronic trading, advancements in computing power, increased data generation and management, and the development of statistical methods, have driven the growth of algorithmic trading and machine learning in economics.
 
 	Tools for automated trading emerged in the early 2000s, initially focused on executing sell orders cost-effectively by breaking them into smaller chunks to minimize market impact. Later alternative tools for the buy side were developed, enabling the creation of buy orders based on transaction costs, liquidity, and short-term price and volume forecasts.
@@ -589,7 +592,7 @@ The example mentioned described a ML system performing supervised learning and s
 
 	In this thesis, we will not explore alternative data sources, but instead will rely on more conventional data, such as various information derived directly from the stock market. This section describes three executions of ML models designed to assist in making trade decisions.
 
-	\section{Stock Trading Bot using Deep Q-Learning \cite{STBDQ}}
+	\subsection{Stock Trading Bot using Deep Q-Learning \cite{STBDQ}}
 	A good example of a common approach in algorithmic trading can be illustrated by the "Stock Trading Bot using Deep Q-Learning" project created by Prabhsimran Singh. This project demonstrates an automatic stock trading bot using Deep Q-Learning, a type of reinforcement learning algorithm utilizing a deep neural network to approximate the optimal action-value function (also known as Q-function), which determines the best action to take in a given state \cite{HCTDRL}.
 
 	At any moment, the agent observes its current state (an $n$-day window of closing stock prices), selects and performs a trading action. The next state is evaluated and the agent receives a reward accordingly. There is no reward for the \textit{hold} action, and there is no immediate reward for the \textit{buy} action. When the agent makes a \textit{sell} action, the reward is calculated based on the difference between the current price and the bought price. This reflects the quality of both the \textit{buy} and \textit{sell} actions.
@@ -609,7 +612,7 @@ The example mentioned described a ML system performing supervised learning and s
 	\end{center}
 	\end{figure}
 
-	\section{A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem \cite{ADRLFFPMP}}\label{paper_ADRLFFPMP}
+	\subsection{A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem \cite{ADRLFFPMP}}\label{paper_ADRLFFPMP}
 	Another example of the use of reinforcement learning in the financial world is presented in the paper of Zhengyao Jiang, Dixing Xu and Jinjun Liang, titled "A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem". 
 	
 	The paper describes the development of a system capable of automating portfolio management. Portfolio management is defined as the action of continuous reallocation of a capital into a number of financial assets. The core of the system is the Ensemble of Identical Independent Evaluators (EIIE) topology.  In an EIIE, there are multiple evaluators (models or algorithms), following the same structure or design, but each working independently examining an asset's historical data to predict future growth. The outputs of their individual evaluations are aggregated to make a final decision. The resulting scores from this evaluation are used to determine the portfolio weights for the next trading period. These weights represent the actions the agent will take. If an asset's weight increases, it'll be bought or if it goes down, it'll be sold. The portfolio weights from the last period are fed back into the EIIE for future predictions.
@@ -647,14 +650,14 @@ The example mentioned described a ML system performing supervised learning and s
 
 	The authors highlighted the limitations of the proposed system, mentioning issues such as the system assuming no market impact or slippage, which are unrealistic. However, the proposed system still remains a highly complex, high performing proof of concept for automated trading systems.
 
-	\section{Stock Market Analysis and Prediction Using LSTM: A Case Study on Technology Stocks \cite{Li_Yu_Xu_Liu_Mo_2023}}
+	\subsection{Stock Market Analysis and Prediction Using LSTM: A Case Study on Technology Stocks \cite{LiYuXuLiuMo2023}}
 	This paper focuses on predicting the closing prices of certain stocks using an LSTM based neural network model. The data was sourced from Yahoo Finance using the \textit{yfinance} Python library, a free and open source module for fetching Yahoo Finance data \cite{yfinance}. The study analyzes the closing prices of four major companies: Apple Inc. (AAPL), Google LLC (GOOG), Microsoft Corporation (MSFT) and Amazon Inc. (AMZN) from January 1, 2012, to the paper's publication in 2023.
 
 	The first step was data preprocessing. This involved extracting the closing price data from the dataset and rescaling it to a range of 0-1. The data was then split into training and test sets with a 95\%-5\% ratio. The final preprocessing step was sequence creation, where input sequences consisted of 60 days' worth of closing prices and the corresponding target was the closing price of the 61st day.
 
 	The neural network architecture included an input layer capable of accepting the 60 day long sequences, followed by two LSTM layers and two dense layers. The first LSTM layer had 128 neurons and returned sequences (so all hidden states over time steps) to feed into the next layer. The second LSTM layer had 64 units and returned only the last state. The final two dense layers had 25 and 1 units, respectively, with the last layer outputting the predicted closing price.
 
-	During training, the network used the Adam optimizer and mean squared error (MSE) as the loss function. The training data was divided into batches of size 1, and the entire training process lasted for a single epoch. Model evaluation on the test set used root mean squared error (RMSE) to measure prediction accuracy. \cite{Li_Yu_Xu_Liu_Mo_2023}
+	During training, the network used the Adam optimizer and mean squared error (MSE) as the loss function. The training data was divided into batches of size 1, and the entire training process lasted for a single epoch. Model evaluation on the test set used root mean squared error (RMSE) to measure prediction accuracy. \cite{LiYuXuLiuMo2023}
 
 	While the model did not accurately predict closing prices, it was able to capture stock price trends with a reasonable degree of accuracy, as shown in Figure~\ref{fig:evalutaion_SMAPUL}.
 	
@@ -669,15 +672,17 @@ The example mentioned described a ML system performing supervised learning and s
 
 	This concept forms the basis of trend following trading strategies. A trend refers to the general direction in which an asset's price moves over time. Trend following strategies typically involve buying assets in uptrends and selling them in downtrends, aiming to capitalize on sustained price momentum rather than predicting exact prices. \cite{TFTSS}
 
-\chapter{The goal of the thesis}
+\chapter{Implementation of the trading algorithm}
+
+\section{The goal of the thesis}
 	Our goal is to examine how real stock market data can be used to construct winning trading strategies using neural networks. To simplify the problem, we focus more on generating profit rather than maximizing it.
 
 	The first step is data processing. We need to transform the available raw data into a format suitable for training and testing the constructed models. For the data processing we aimed to test multiple methods to give the model the best chance to recognize and learn patterns in price fluctuations.
 
 	To achieve our goals, we focused on supervised learning, specifically treating it as a classification problem. That is, the model outputs a trading action based on the received input. However, based on the results of previously discussed papers and projects, we also created and tested a simple setup for reinforcement learning with RNNs. For the classification approach, we opted to try both a CNN and an RNN implementation. While CNNs are primarily used for image data, we discussed how efficient CNNs are for capturing patterns in the available data, as seen in the results of the previously discussed paper in section \ref{paper_ADRLFFPMP}. For the RNN approach, we used a simple LSTM based neural network.
 
-\chapter{Implementation of the program}
-	\section{Development framework}
+\section{Development tools}
+	\subsection{Development framework}
 	MATLAB\textsuperscript{\textcopyright} is a numeric computing environment that provides a wide range of tools and utilities, including a programming language, an integrated development environment (IDE) for code editing, interactive apps, and specialized libraries for solving domain-specific problems such as image processing, control system design, and data analysis. With its built-in functions and pre-made algorithms, MATLAB is widely used by engineers and researchers to design, develop, and operate complex systems across various industries. Applications include, but are not limited to autonomous vehicles, aircraft, marine vehicles, spacecraft, semiconductor design, wireless communication systems and manufacturing optimization. \cite{WhatIsMATLAB}
 
 	MATLAB offers another product called Simulink, which provides tools for Model-Based Systems Engineering (MBSE). Simulink enables developers to design, simulate, and deploy systems following a model-based architecture. It is primarily used to virtually simulate systems before physical testing or hardware deployment, evaluate system designs and compose control architectures \cite{WhatIsSimulink}. Simulink is also utilized for creating machine learning systems through reinforcement learning. Using this package, intelligent agents can be trained via the standard trial-and-error interactions with dynamic environments \cite{SimulinkAI}. 
@@ -686,23 +691,23 @@ The example mentioned described a ML system performing supervised learning and s
 
 	The program was developed on a PC running Debian 12 (Bookworm). The hardware specifications include an Intel Core i7-8700K CPU (4.70 GHz), an NVIDIA GeForce RTX 2070 SUPER GPU and 16 GB of RAM.
 
-	\section{The raw data}
+	\subsection{The raw data}
 	The Trader Workstation (TWS) is an online platform created by Interactive Brokers (IBKR) that traders and investors use to trade stocks, bonds, futures, and more across over 150 markets worldwide via its graphical user interface \cite{TW}. TWS also offers a non-graphical API designed for fast-paced, data-sensitive, and complex programmatic trading. This API can handle thousands of market data streams simultaneously while allowing users to execute trades \cite{IBKRAPI}.
 
 	Using this API, various types of data can be collected, including "Top Market Data" (Level 1) and "Market Depth" data (Level 2) for a selected instrument's limit order book. Level 1 data includes the best bid and ask prices, along with the number of shares that traders are trying to buy or sell. It essentially represents the top of the limit order book for both sides \cite{IL1}. Level 2 data expands the information provided by Level 1 by adding the market depth, typically showing about 5-10 additional price levels. This type of data includes not only the best bid and ask prices but also some of the subsequent lines in the limit order book \cite{IL2}.
 
 	Generally, there are two common methods for collecting order book data: requesting full snapshots of the limit order book or receiving updates through streams of messages. The latter offers a more optimized approach, as repeatedly requesting full snapshots in a liquid market would impose a high computational load due to the large number of changes occurring every second. To mitigate this, the full snapshots are returned at discrete time intervals. However, the downside is that between snapshots, it's impossible to track the changes, significantly reducing the available information. \cite{TLOB}
 
-	A subset of the IBKR API, known as the TWS API, enables the collection of market data, including real-time prices, volumes, and order book information as a stream of messages. In the case of LOB data, initially, all available rows of the LOB are delivered to the client as messages, but as the market moves, only updates are sent. As previously mentioned, each message includes a single LOB update and contains the order's ID, date, type, price, and size \cite{TWS_API_MD}. These messages were collected by László Marák, PhD, the supervisor of this thesis with the help of The Intelligent Robotics Centre at J. Selye University, using the IBKR API, starting in early 2020. The messages are organized and stored in a MySQL database.
+	A subset of the IBKR API, known as the TWS API, enables the collection of market data, including real-time prices, volumes, and order book information as a stream of messages. In the case of LOB data, initially, all available rows of the LOB are delivered to the client as messages, but as the market moves, only updates are sent. As previously mentioned, each message includes a single LOB update and contains the order's ID, date, type, price, and size \cite{TWSAPIMD}. These messages were collected by László Marák, PhD, the supervisor of this thesis with the help of The Intelligent Robotics Centre at J. Selye University, using the IBKR API, starting in early 2020. The messages are organized and stored in a MySQL database.
 
 	We tried two types of data processing methods for creating the training data. One approach involves reconstructing the limit order book with 3 level depth. This approach will be referred to as the \textit{LOB method}. The other approach uses only the theoretical value of the stock and it will be referred to as the \textit{tick price method}. 
 	
 	For both methods, we generate sequences where each neighbouring sequence differs by a single time step. Furthermore, we annotate the data with \textit{Buy} and \textit{Hold} labels. For annotation we check if prices surpass a defined threshold within a selected time interval from a given point. So ideally, the model's \textit{Buy} response indicates that, starting from that point, the instrument can be \textbf{sold} at a profit defined by the selected threshold value within the interval. Thus in our case, avoiding a separate \textit{Sell} label reduces redundancy and simplifies the problem.
 
-	\section{Tick price method}
+	\subsection{Tick price method}
 	The messages collected via the IBKR API don't have uniform time difference between them. The gaps can range from a few milliseconds to several seconds. These irregularities can make it harder to recognize patterns in price fluctuations and may cause the model to misinterpret time gaps as meaningful signals. To address this issue, we created two versions of this method: one uses interpolated stock prices (the \textit{interpolated version}) and the other uses raw stock prices with delta time appended (the \textit{raw version}). The initial steps are identical for both variants and the difference will be explained in detail later in this section.
 
-		\subsection{Querying and preparing data}
+		\subsubsection{Querying and preparing data}
 		The data collected via the IBKR API includes a type of information called \textit{Mark Price}, defined as the current theoretical value of an instrument \cite{TT}. We load this data from our database using SQL queries on the tables \texttt{Instrument} and \texttt{tickPrice}. The structure of these tables is shown in Figure \ref{fig:instrument_tick_price}.
 		\begin{figure}[H]
 		\begin{center}
@@ -723,7 +728,7 @@ The example mentioned described a ML system performing supervised learning and s
 
 		To query this data, we first specify the stock symbol, the start day timestamp, the number of days to query, and the desired market data type. In this method, we focus on the theoretical price, identified by field type 37. Starting from the first day's timestamp, we iterate through each day, querying data for regular market hours, converting timestamps to a “seconds since midnight” format for easier processing, and saving the results to separate files. This is repeated for the specified number of days.
 
-		\subsection{Processing data}
+		\subsubsection{Processing data}
 		Before starting the data processing, we check whether data from a previous run are still present. If so, we delete them to avoid potential data conflicts caused by changes in processing parameters.
 		
 		For the processing, 7 parameters need to be specified:
@@ -797,7 +802,7 @@ The example mentioned described a ML system performing supervised learning and s
 		\end{center}
 		\end{figure}
 
-		\subsection{Balancing the data set}
+		\subsubsection{Balancing the data set}
 		Each day can produce tens of thousands of sequences, reaching sizes of 15+ GB, making it unfeasible to load all generated sequences into the production computer's memory. Furthermore, the vast majority of sequences are labeled as \textit{Hold}. For example, in one of our tests, the class distribution between \textit{Hold} and \textit{Buy} was 95\%-5\%. Using this data directly as a training set would result in a highly imbalanced data set, which could bias the model toward the majority class and lead to poor classification of the minority class, in this case, the \textit{Buy} class \cite{DID}.
 
 		We attempted to address the memory issue by using MATLAB's integrated datastore repository. However, by default, datastores do not read data in structured batches as needed, and this approach still wouldn't solve the class imbalance.
@@ -814,9 +819,9 @@ The example mentioned described a ML system performing supervised learning and s
 		\end{center}
 		\end{figure}
 
-	\section{LOB method}
+	\subsection{LOB method}
     This method will be used to create the environment for the reinforcement learning implementation and to create a learning set similar to the one generated using the tick price method for classification, but with more features to provide the model with additional information to help it learn patterns. The process of creating the classification set is identical to that of the reinforcement learning set, with additional steps at the end.
-		\subsection{Querying and preparing data} 
+		\subsubsection{Querying and preparing data} 
 			For the LOB reconstruction we use two tables from our database: \texttt{reqMktDepth} and \texttt{updateMktDepthL2}. The latter contains the limit order book message streams, while the \texttt{reqMktDepth} table stores the tickerID-stock symbol pairs needed to identify which message belongs to which stock.
 
 			\begin{figure}[H]
@@ -855,7 +860,7 @@ The example mentioned described a ML system performing supervised learning and s
 
 			After querying the messages for a given ticker ID, timestamps are converted to MATLAB's datetime format, and the position values in the messages are incremented by 1. This is necessary because the positions originally start from index 0, but MATLAB tables don't support indexing from zero.
 
-		\subsection{Reconstructing the LOB}  
+		\subsubsection{Reconstructing the LOB}  
 			Once the data is queried and prepared, the reconstruction begins. We create two empty tables: one for the ask side and one for the bid side of the LOB. Then, we iterate through the messages and execute the specified operation of each message on the appropriate side of the LOB. The operations are handled as follows:
 			\begin{itemize}
 				\item \textbf{Insert operation} = MATLAB does not have a built-in function to insert a row into a table, so this operation is implemented manually. If a message needs to be inserted at index $n$, the table is split into two parts: one from the start to index $n-1$ and another from index $n$ to the end. The new message is then inserted between these two segments, reconcatenating the table.  
@@ -863,7 +868,7 @@ The example mentioned described a ML system performing supervised learning and s
 				\item \textbf{Delete operation} = This is performed using MATLAB's built-in table row deletion functionality.  
 			\end{itemize}
 
-		\subsection{Generating LOB snapshots}
+		\subsubsection{Generating LOB snapshots}
 			To train our neural network we need to create a training set with a sufficient amount of data. The training set is generated by capturing snapshots of the LOB as it is being built.
 
 			An important aspect of snapshot generation is determining when the snapshots should be taken, specifically the time interval between subsequent snapshots. Our implementation processes all operations occurring at the same time with integer-second precision before generating a snapshot. This method produces a large number of snapshots while minimazing redundancy and data loss.
@@ -878,7 +883,7 @@ The example mentioned described a ML system performing supervised learning and s
 			\end{center}
 			\end{figure}
 
-		\subsection{Formatting the snapshots}\label{section_FS}
+		\subsubsection{Formatting the snapshots}\label{section_FS}
 			To effectively use the LOB snapshots programmatically, we format each generated snapshot similarly to the format used by the previously described limit order book reconstruction tool, LOBSTER. Each snapshot becomes a row in a table, with the first column storing the latest timestamp of the snapshot. This timestamp, like in the tick price method, is converted to a “seconds since midnight” format and snapshots outside regular trading hours are filtered out. The remaining columns alternate between ask and bid information: ask price 1, ask size 1, bid price 1, bid size 1, then ask price 2, and so on, up to a specified depth. For our tests, we specified the depth as level 3, meaning we use the first three levels of the limit order book. As we process each snapshot, we vertically concatenate it with the previously processed ones. The structure of the formatted snapshots is shown in Figure \ref{fig:formatted_lob}.
 
 			\begin{figure}[H]
@@ -891,7 +896,7 @@ The example mentioned described a ML system performing supervised learning and s
 
 			The resulting table is saved separately for each day and is used for the reinforcement learning implementation. For the classification implementation, additional processing is required.
 
-		\subsection{Processing the LOB snapshots for classification}
+		\subsubsection{Processing the LOB snapshots for classification}
 		The earlier formatted LOB snapshots can be easily reshaped to fit the format required by the classification approach. This process is very similar to how we handle the raw version of the tick price method and it requires the same seven parameters.
 
 		First, we check whether data from a previous run is still present and delete it if necessary to avoid data conflicts. Then we load the specified number of days into a cell array, with each day stored as a separate element. We also remove the first and last 30 minutes of each trading day.
@@ -909,7 +914,7 @@ The example mentioned described a ML system performing supervised learning and s
 
 		The vast majority of the sequences will likely have \textit{Hold} labels, so this set also requires balancing. For this, we use the excat same method as we use for the tick price method.
 
-	\section{Creating the environment and agent for reinforcement learning}
+	\subsection{Creating the environment and agent for reinforcement learning}
 	We built the reinforcement learning environment following a standard loop from a freely available MATLAB example \cite{DRLOTE} to create a proof of concept or benchmark we can work upon later. At each time step the agent receives an observation, selects an action, and the environment transitions to a new state.
 
 	At the start, the environment loads the preprocessed LOB data, formatted as described in Section~\ref{section_FS}, for the specified days and stock symbol. For each test, only one stock symbol is used. An episode begins with a fixed budget and zero owned stocks. We define a trading horizon of 60 seconds, meaning the agent can hold a stock for a maximum of 60 seconds before being forced to sell it, preventing the agent from holding stocks for too long. Each step in the episode corresponds to a row in the loaded LOB data. At every time step, the agent observes features representing the current market conditions and its own financial state. These features include:
@@ -958,7 +963,7 @@ The example mentioned described a ML system performing supervised learning and s
 	\end{center}
 	\end{figure}
 
-	\section{Creating the neural networks for supervised learning}
+	\subsection{Creating the neural networks for supervised learning}
 	For supervised learning, we tested two types of models: a CNN, specifically the LeNet topology and an RNN, using an LSTM based recurrent network.
 
 	\begin{figure}[H]
@@ -987,9 +992,9 @@ The example mentioned described a ML system performing supervised learning and s
 
 	Both networks end with a fully connected layer with as many neurons as classes.
 
-\chapter{Testing and evaluating the implementations}
+\section{Testing and evaluating the implementations}
 After creating the base framework for the reinforcement learning and supervised learning based systems, we ran multiple tests to find the optimal hyperparameters of each implementation in a trial and error way. This chapter presents the tests and evaluates their outcomes.
-	\section{The reinforcement learning implementation}
+	\subsection{The reinforcement learning implementation}
 	The adjustable environment parameters include the initial funds, reward scaling factor $\lambda$ and the window size $N$ used to compute the SMA and volatility. The training parameters to experiment with include the learning rate, batch size, exploration epsilon, decay rates for learning and exploration, and the number of epochs.
 
 	Even after a limited number of tests, it became clear that the agent could not learn any meaningful patterns from the data. Regardless of the parameters used, it seemingly chose randomly from the three trading actions. Figure~\ref{fig:rl_episode_rewards} shows the agent's accumulated rewards across episodes in one of the tests runs. The worst case cumulative reward is $-5 \cdot 10^4$.
@@ -1006,7 +1011,7 @@ After creating the base framework for the reinforcement learning and supervised 
 	
 	Based on our experiences with this setup, the supervised learning implementation uses a longer prediction horizon than the 60 seconds used in the reinforcement learning tests. This should reduce noise and help the model capture more meaningful patterns.
 
-	\section{The supervised learning implementations}
+	\subsection{The supervised learning implementations}
 	The primary goal of these tests is to compare the performance of the two network architectures (LSTM and LeNet) and two data processing methods (LOB method and tick price method), as well as to find the optimal parameters. To ensure fair comparisons, we tested the networks using the same parameters and datasets whenever possible.
 
 	The tunable data processing parameters include the price interpolation flag, price threshold for identifying significant changes, price margin, window size for checking future prices, and sequence length. The only training parameter varied between tests was the mini-batch size.
@@ -1015,7 +1020,7 @@ After creating the base framework for the reinforcement learning and supervised 
 
 	Though training took considerable time and limited the number of tests, we conducted at least three tests per parameter combination. The results presented are the averages of these tests.
 
-		\subsection{Performance comparison of LSTM and LeNet}
+		\subsubsection{Performance comparison of LSTM and LeNet}
 		As a first step, we compared the two network architectures to determine which performs better. In the following tests, the mini-batch size was set to 512, \texttt{price\_diff\_margin} was set to 0.5\%, and 184 days' worth of data were used. The data were processed using the raw version of the tick price method, with features including normalized prices and delta time. The variable parameters and the networks' test set accuracy results are shown in Table~\ref{table:LeNet_or_LSTM}.
 		\begin{table}[H]
 			\begin{center}
@@ -1082,7 +1087,7 @@ After creating the base framework for the reinforcement learning and supervised 
 
 		Lower price thresholds also require greater funds to generate meaningful returns. Therefore, in the next tests, we set the price threshold to at least 1.5\% and explored the optimal future price checking window. Higher thresholds require examining further into the future, which requires longer input sequences to capture the necessary temporal context. This helps the model detect patterns that precede significant price changes, potentially leading to more reliable predictions. Given that LSTM performance degraded with longer sequences, the subsequent tests were conducted using the LeNet based network.
 
-		\subsection{Testing window sizes, sequence lengths and price thresholds}
+		\subsubsection{Testing window sizes, sequence lengths and price thresholds}
 		In this series of tests, we aimed to find the optimal future price checking window size, sequence length, and price threshold. We used a \texttt{price\_diff\_margin} of 0.5\% and 184 days of data, processed with the raw tick price method. Since we were using a CNN network for these tests, we could increase the mini-batch size. Through testing we determined that the largest possible mini-batch size, given our development computer's specification, is 32,768. Using this size significantly reduced the time required for individual tests.
 
 		\begin{table}[H]
@@ -1141,7 +1146,7 @@ After creating the base framework for the reinforcement learning and supervised 
 
 		While the highest accuracy came from more extreme settings, they aren't necessarily the most reliable or practical. A more balanced configuration (\texttt{price\_diff\_threshold} = 2\%, \texttt{sequence\_length} = 1,200 and \texttt{future\_price\_check} = 7,200) achieved a strong 92.51\% accuracy with a much larger training set (72,880 samples), offering a good trade-off between performance and generalization.
 
-		\subsection{Comparison of the data processing methods}
+		\subsubsection{Comparison of the data processing methods}
 		First, we selected the better performing version of the tick price method to later compare it with the LOB method. As mentioned earlier, irregular time gaps between data points can cause the model to misinterpret these intervals and degrade performance. To address this, we implemented two versions of the tick price method: the interpolated version and the raw version. So far, we've used the raw version, since it alters the original data the least. The following tests compare the model's performance on both versions using various parameters. For these tests, we set \texttt{sequence\_length} to 1,200, \texttt{price\_diff\_margin} to 0.5\%, and used data from 184 days.
 
 		\begin{table}[H]
@@ -1214,7 +1219,7 @@ After creating the base framework for the reinforcement learning and supervised 
 		
 		Because of the technical difficulties mentioned, we couldn't provide a fair comparison between the LOB and tick price methods. However, given the promising results of the raw tick price method, we continued using it in the subsequent tests.
 
-		\subsection{Effect of price difference margin on model performance}
+		\subsubsection{Effect of price difference margin on model performance}
 		The final adjustable hyperparameter is \texttt{price\_diff\_margin}. To evaluate its impact, we used a \texttt{sequence\_length} of 1,200 and loaded 184 days of data for training.
 		\begin{table}[H]
 			\begin{center}
@@ -1256,7 +1261,7 @@ After creating the base framework for the reinforcement learning and supervised 
 		
 		The results in Table~\ref{table:price_diff_margin_effect} show that defining a buffer zone between the two classes generally lowers the model's accuracy. A possible explanation is that by filtering out the buffer zone containing the ambiguous patterns, the model sees fewer borderline cases during training, which may make it even harder to recognize such patterns later. Up to this point, we included a 0.5\% margin in all previous tests. However, since this margin was constant between comparisons, it did not invalidate the relative evaluation of other parameters.
 
-		\subsection{Analyzing the optimal model configuration}
+		\subsubsection{Analyzing the optimal model configuration}
 		After hyperparameter tuning, the model was evaluated using the optimal configuration. Tests were conducted on DIS, BA, and FOXA stocks (The Walt Disney Company, The Boeing Company, Fox Corporation) by training a LeNet based network on one stock at a time with varying numbers of trading days. Each test was run twice instead of three, as previous tests showed consistent results. The optimal setup used the raw tick price method, a 7,200 second future price window, a 2\% price increase threshold for \textit{Buy} signals, input sequences of 1,200 time steps, and a 0\% margin threshold.
 
 		\begin{table}[H]
@@ -1303,7 +1308,7 @@ After creating the base framework for the reinforcement learning and supervised 
 		\end{center}
 		\end{figure}
 
-\chapter{Conclusions}
+\section{Conclusions}
 	Even though our end model struggles with busy market days, we presented a framework that can be built upon later, as it was typically able to identify clear market trends. However, it had difficulty generalizing in atypical scenarios with concentrated surges of \textit{Buy} signals, likely due to insufficient exposure to diverse \textit{Buy} patterns during training. Despite these challenges, we have many ideas for further development.
 
 	Our reinforcement learning agent only learned to avoid illegal actions, suggesting flaws in the environment's structure. The next step should be a full reconstruction of the environment, explicitly including LOB data instead of derived features like volatility or SMA. Another major change would be extending the trading horizon. Our experience with the classification model showed that short time intervals contain highly noisy price data, while longer intervals and higher price changes reduce noise and help the model learn patterns. Therefore, the trading horizon in reinforcement learning should be much longer than the current 60 seconds.
@@ -1314,7 +1319,7 @@ After creating the base framework for the reinforcement learning and supervised 
 
 	Exploring more complex network architectures could be the next step. Bidirectional LSTMs (BiLSTMs), which process sequences forward and backward to capture context from both past and future, may learn more abstract patterns. Another option is convolutional LSTMs (ConvLSTMs), which combine convolutional neural networks (effective at extracting spatial features) with LSTMs (excel at modeling temporal dependencies). ConvLSTMs can help the model better capture both spatial and temporal patterns, potentially improving prediction accuracy.
 
-\chapter*{Summary}
+\section*{Summary}
 In this work we have examined how raw, high-resolution data can be processed and analyzed and how it can be used with machine learning models. The overall goal was to construct a system capable of identifying profitable opportunities. To achieve this, we worked on data processing preprocessing, model design, implementation, training, and evaluation.
 
 First, two methods were implemented to process raw stock market data into formats suitable for machine learning: the tick price method and the limit order book (LOB) method. The tick price method created sequences from timestamped ticks. To address the issue of nonuniform time gaps between ticks, two versions were developed. In the interpolated version, prices were interpolated within fixed trading intervals. In the raw version, original prices were kept, and the time elapsed since the previous tick was added as a feature to account for variable gaps. The LOB method involved fully reconstructing the limit order book from market depth updates. Snapshots of the LOB were taken periodically and formatted for efficient programmatic use. Finally, all data generated by these methods were annotated using a specified price threshold and time interval. The last step of data processing was balancing, to prevent class bias during training.
@@ -1330,8 +1335,8 @@ Based on our experiments, using a larger future price window and targeting great
 In our final testing series, we determined that the model's performance varied significantly depending on the selected days. Accuracy ranged from 50\% to over 95\% across all three stocks tested. Confusion matrices showed that the model performed best on days with few or no \textit{Buy} signals, and worst when the number of \textit{Buy} signals were unusually high. This was likely due to limited diversity in \textit{Buy} samples during training. While the dataset was balanced overall, most \textit{Buy} signals came from a few events, unlike \textit{Hold} samples drawn from many days. This imbalance may negatively affected generalization. However, our proposed model demonstrated its ability to learn meaningful patterns, achieving over 90\% accuracy in some cases. Since the training set was roughly balanced between classes, these results reflect genuine predictive skill rather than class bias. Under the right conditions, the model showed strong performance and clear potential for further refinement and practical use.
 
 \pagebreak
-% \chapterimage{kep/header3.png} % Chapter heading image
-\chapter*{Resumé}
+% \sectionimage{kep/header3.png} % Chapter heading image
+\section*{Resumé}
 \addcontentsline{toc}{chapter}{Resumé}
 \markboth{}{\sffamily\normalsize{Resumé}}
 Cieľom tejto diplomovej práce je analyzovať údaje z akciového trhu s vysokým rozlíšením a aplikovať neurónové siete na vývoj víťazných obchodných stratégií. Výskum sa zameriava na predpovedanie pohybu cien na akciovom trhu, ktoré sú podmienené dynamikou ponuky a dopytu a sú aktívne skúmanou oblasťou. V práci sa prezentuje vývoj aplikácie, ktorá je schopná predbežne spracovať údaje z akciového trhu v reálnom čase a trénovať neurónové siete. Získané výsledky sa vyhodnotia. Vývoj je rozdelený do dvoch hlavných krokov: predbežné spracovanie údajov a konštrukcia neurónových sietí so zameraním na rekurentné neurónové siete (RNN) založené na dlhej krátkodobej pamäti (LSTM) a konvolučné neurónové siete (CNN) podľa topológie LeNet. Práca pozostáva zo siedmich kapitol, ktoré podrobne opisujú teoretické východiská, metodiku, proces vývoja, výsledky testovania a možnosti ďalšieho rozvoja výskumu.
@@ -1349,11 +1354,13 @@ Piata kapitola opisuje implementáciu programu a proces vývoja. Medzi nástrojm
 
 Na záver siedmej kapitoly sú zhrnuté výsledky výskumu a navrhnuté ďalšie smery na zlepšenie. Konečný model je schopný identifikovať čisté trhové trendy, ale má problémy v atypických dňoch s koncentrovanými signálmi "Buy", pravdepodobne v dôsledku obmedzenej variability triedy "Buy" v súbore trénovaných údajov. Agent posilneného učenia sa naučil iba vyhýbať sa neplatným akciám, čo naznačuje nedostatky v štruktúre prostredia. Odporúča sa kompletné prepracovanie prostredia, priame používanie údajov LOB namiesto odvodených funkcií (napr. volatility, SMA) a výrazné predĺženie 60-sekundového obchodného horizontu, pretože dlhšie časové intervaly znižujú šum a pomáhajú učiť sa vzory. Pamäťové požiadavky metódy LOB bránili načítaniu celého súboru údajov; MATLAB datastores nepodporovali štruktúrované minidávkové čítanie, preto bol navrhnutý vývoj vlastného datastore-u, ktorý by umožnil minidávkové čítanie väčších dátových súborov. Na zlepšenie rozpoznávania signálov "kúpy" modelu je potrebný rozmanitejší súbor trénovaných údajov, čomu v súčasnosti bráni kapacita používaného počítača, keďže údaje sú v súčasnosti uložené lokálne. Vyhradený server by umožnil prístup k väčšiemu množstvu údajov, čím by sa zlepšila výkonnosť modelu. Ako ďalšia možnosť vývoja sa navrhujú zložitejšie sieťové architektúry, ako napríklad obojsmerné LSTM (BiLSTM) alebo konvolučné LSTM (ConvLSTM), ktoré by mohli lepšie zachytiť priestorové a časové vzory, a tým zvýšiť presnosť predpovede.
 
+\begingroup
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
+\renewcommand{\pagebreak}{}
 \printbibliography[title=References]
 \addcontentsline{toc}{chapter}{References}
-\pagebreak
-
-\chapter*{Attachments}
+\section*{Attachments}
 \begin{figure}[H]
 \begin{center}
 	\includegraphics[height=0.8\textheight, keepaspectratio]{kep/DIS2.png}
@@ -1369,7 +1376,6 @@ Na záver siedmej kapitoly sú zhrnuté výsledky výskumu a navrhnuté ďalšie
 	\includegraphics[height=0.8\textheight, keepaspectratio]{kep/FOXA2.png}
 \end{center}
 \end{figure}
-
-\pagebreak
+\endgroup
 
 \end{document}
