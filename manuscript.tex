@@ -999,17 +999,23 @@ After creating the base framework for the reinforcement learning and supervised 
 
 	Even after a limited number of tests, it became clear that the agent could not learn any meaningful patterns from the data. Regardless of the parameters used, it seemingly chose randomly from the three trading actions. Figure~\ref{fig:rl_episode_rewards} shows the agent's accumulated rewards across episodes in one of the tests runs. The worst case cumulative reward is $-5 \cdot 10^4$.
 
-	Despite various parameter adjustments, the agent consistently failed to learn a usable trading strategy. It did learn to avoid illegal actions, but nothing beyond that. Since changing parameters had no effect, we concluded the issue likely stemmed in the structure of both the learning process and the environment. As our main focus is the supervised learning approach, we decided not to redesign the reinforcement learning environment and proceeded with the insights gained.
-
 	\begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=\linewidth]{kep/RL1_episode_rewards.png}
+		\includegraphics[width=0.9\linewidth]{kep/RL1_episode_rewards.png}
 		\caption{The accumulated rewards in one test.}
 		\label{fig:rl_episode_rewards}
 	\end{center}
 	\end{figure}
+
+	Despite various parameter adjustments, the agent consistently failed to learn a usable trading strategy. It did learn to avoid illegal actions, but nothing beyond that. Since changing parameters had no effect, we concluded the issue likely stemmed in the structure of both the learning process and the environment. 
+
+	The penalty for illegal actions was fixed and relatively large, which might have overshadowed the smaller profit-based rewards. This could result in the agent learning only what not to do, without enough motivation to explore good strategies. The reward for the hold action also penalized both market volatility and the time spent holding. In some periods, this may have discouraged the agent from holding even when it would have been beneficial.
 	
-	Based on our experiences with this setup, the supervised learning implementation uses a longer prediction horizon than the 60 seconds used in the reinforcement learning tests. This should reduce noise and help the model capture more meaningful patterns.
+	The environment itself may also have contributed to the failure. The 60 second trading horizon forced the agent to make decisions within a short time window, preventing it from learning longer-term strategies, adapting to slower market changes, and possibly introducing noise due to the small time frame. It also introduced a constraint that doesn't necessarily reflect real trading conditions, where timing flexibility is often crucial.
+
+	The observation space, while covering some key features such as short-term trends, SMA, might not have provided enough information for the agent to understand market context. With limited inputs and no access to more complex patterns or long term trends, the agent may have lacked the informations needed to learn profitable behaviours. Additionally, the way financial state features, such as cash and portfolio value, were represented might have made it difficult for the agent to connect its actions with long-term outcomes during training.
+	
+	As our main focus is the supervised learning approach, we decided not to redesign the reinforcement learning environment and proceeded with the insights gained. Based on our experiences with this setup, the supervised learning implementation uses a longer prediction horizon than the 60 seconds used in the reinforcement learning tests. This should reduce noise and help the model capture more meaningful patterns.
 
 	\subsection{The Supervised Learning Implementations}
 	The primary goal of these tests is to compare the performance of the two network architectures (LSTM and LeNet) and two data processing methods (LOB method and tick price method), as well as to find the optimal parameters. To ensure fair comparisons, we tested the networks using the same parameters and datasets whenever possible.
